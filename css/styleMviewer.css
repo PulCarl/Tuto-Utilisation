@@ -1,0 +1,60 @@
+body {
+          margin: 0;
+          padding: 0;
+          /* background: url("../img/Fond.jpg") no-repeat top left #000; */
+          background-size: cover;
+      }
+
+.menu{
+display: flex;
+/* c'est cause du margin left que la page n'est pas responsive à regler */
+margin-left: 400px;
+padding: 50px;
+width: 1000px;
+height: 1500px;
+justify-content: center;
+background-color:rgba(211,211,211,0.3);
+border-radius:10%;
+}
+
+.sommaire{
+  font-family: 'Inria Serif', serif;
+  position: fixed;
+  z-index: 99;
+  top: 300px;
+  left: 10px;
+  width: 200px;
+  height:400px;
+  font-size: 20px;
+  text-align: center;
+  background-color:rgba(211,211,211,0.3);
+  border-radius:10%;
+}
+.titre{
+  font-family: 'Inria Serif', serif;
+  color: black;
+  font-size: 4rem;
+  vertical-align:top;
+  justify-content: center;
+  text-align: center;
+  height: 150px;
+}
+.fermer{
+  position: fixed;
+   top: 0;
+   right: 0;
+   border: 0;
+}
+.btn {
+    height: 50px;
+    width: 50px;
+    background-color:rgba(211,211,211,0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+}
