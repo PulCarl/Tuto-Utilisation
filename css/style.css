@@ -1,0 +1,92 @@
+body {
+          margin: 0;
+          padding: 0;
+          background: url("../img/Fond.jpg") no-repeat top left #000;
+          background-size: cover;
+      }
+      .menu{
+  display: flex;
+  margin-top:100px;
+  /* c'est cause du margin left que la page n'est pas responsive à regler */
+  margin-left: 400px;
+  padding: 50px;
+  width: 1000px;
+  height: 700px;
+  justify-content: center;
+  background-color:rgba(211,211,211,0.3);
+  border-radius:10%;
+}
+.titre{
+  font-family: 'Inria Serif', serif;
+  color: black;
+  font-size: 3rem;
+  vertical-align:top;
+  justify-content: center;
+  text-align: center;
+  height: 620px;
+}
+.image{
+  margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+  transform: translateY(-150%); /* tiré de la moitié de sa propre hauteur */
+  justify-content: space-evenly;
+}
+.logo{
+  display: flex;
+  transform: translateY(-200%); /* tiré de la moitié de sa propre hauteur */
+  justify-content: center;
+}
+img{
+border-radius: 25%;
+justify-content:space-evenly;
+}
+
+/* .image {
+	margin: 15px 15px 0;
+	padding: 0;
+}
+.image:last-child {
+	padding-bottom: 60px;
+} */
+.image::after {
+	content: '';
+	clear: both;
+	display: block;
+}
+.image div {
+	position: relative;
+	float: left;
+	height: 200px;
+	margin: 0 0 0 25px;
+	padding: 0;
+}
+.image div:first-child {
+	margin-left: 0;
+}
+.image div span {
+	position: absolute;
+	bottom: -50px;
+	left: 0;
+	z-index: -1;
+	display: block;
+	width: 270px;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-size: 30px;
+	text-decoration: none;
+	text-align: center;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	opacity: 0;
+}
+figure {
+	/* width: 300px; */
+	margin: 0;
+	padding: 0;
+	/* background: #fff; */
+	overflow: hidden;
+}
+figure:hover+span {
+	bottom: -100px;
+	opacity: 1;
+}
