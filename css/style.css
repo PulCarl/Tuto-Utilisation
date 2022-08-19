@@ -13,7 +13,7 @@ body {
   width: 1000px;
   height: 700px;
   justify-content: center;
-  background-color:rgba(211,211,211,0.3);
+  background-color:rgba(211,211,211,0.4);
   border-radius:10%;
 }
 .titre{
@@ -89,4 +89,78 @@ figure {
 figure:hover+span {
 	bottom: -100px;
 	opacity: 1;
+}
+/* Animation de la notification  */
+ .overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+.popup {
+  margin: 10px 10px 20px auto;
+  padding: 20px;
+  background-color:rgba(135, 206, 250,0.7);
+  border-radius: 5px;
+  width: 300px;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.content{
+  font-size: 20px;
+}
+.popup h2 {
+  margin-top: 0;
+  color: #fff;
+  font-family: 'Inria Serif', serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+    animation: close 2s  infinite alternate;
+}
+
+@keyframes close {
+ 0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+    0 0 3px #fff,
+    0 0 5px #fff,
+    0 0 42px rgb(255, 255, 255),
+    0 0 77px rgb(0, 0, 0),
+    0 0 100px rgb(0, 0, 0);
+ }
+   20%, 24%, 55% {
+     text-shadow:none;
+   }
+}
+
+.popup .close:hover {
+  color:red;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
 }
