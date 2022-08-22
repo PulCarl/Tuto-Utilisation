@@ -58,6 +58,41 @@
           <li><b>name</b>: paramètre de type texte qui précise le nom de la couche.</li>
           <li><b>url</b>: paramètre de type URL (URL du service web).</li>
           <li><b>id</b>: paramètre de type texte qui renseigne l’identifiant technique de la couche côté serveur WMS ou WFS.</li>
+          </ul>
+            <h2> Paramètre pour gérer l'affichage de la couche</h2>
+            <ul>
+              <li><b>visible</b>: Booléen stipulant si la couche est visible par défaut.
+                <li><b>opacity</b>: Opacité de la couche (1 par défaut).
+                  <li><b>style</b>: Style(s) de la couche. Si plusieurs styles , utiliser la virgule comme séparateur. Si la couche est de type wms, il faut faire référence à un style sld. Si la couche est de type geojson, il faut faire référence à un style définit dans lib/featurestyles.js. Si la couche est de type customlayer, le style n’est pas défini ici.
+                    <li><b>sld</b>: Lien vers un SLD stocké sur le web. Dans ce fichier SLD, la balise sld:Name contenue dans sld:NamedLayer doit être égale au nom de la couche sans mention du namespace. Exemple <sld:Name>aeroports</sld:Name>. Si plusieurs styles , utiliser la virgule comme séparateur. S’applique uniquement aux layers WMS. Il faut indiquer l’URL résolvable par le serveur WMS du ou des sld.
+                      <li><b>index</b>: Ordre d’affichage de la couche sur la carte et dans la légende au démarrage. Les couches avec ce paramètre seront visibles sous les toplayers. Les couches sans ce paramètre ni toplayer seront affichées dans l’ordre d’écriture dans le XML.
+                      </ul>
+                      <h2>Paramètre pour gérer le filtre attributaire(liste déroulante) des couches WMS</h2>
+                      <ul>
+                        <li><b>attributefilter</b>:  Booléen précisant si on active la sélection attributaire par menu déroulant.
+                          <li><b>attributefield</b>: Nom du champ à utiliser avec le contrôle attributefilter.
+                            <li><b>attributevalues</b>: Valeurs de la sélection attributaire séparées par des virgules.
+                              <li><b>attributelabel</b>:  Texte à afficher pour chaque atttribut de la liste déroulante associée.
+                      </ul>
+                      <h3> Si vous trouvez que paramétrer des couches dans le fichier XML soit trop compliquez pour vous. Les développeurs ont tout prévu, une application existe pour paramétrer plus facilement l'application. </h3>
+                      <a href="https://kartenn.region-bretagne.fr/mviewerstudio/?xml=" target="_blank" i18n="help.modal.doc"><h2>Mviewer Studio</h2></a>
+                        <img src="img/menustudio.PNG">
+                        <h4>Image: Menu Mviewer studio</h4>
+                        <img src="img/openxml.PNG">
+                        <h4>Image: Charger le document XML default  Mviewer studio</h4>
+                        <p> Dans premier temps, il faut charger le fichier default.xml qui se trouve dans le dossier app de votre dossier Mviewer.</p>
+                        <h2>Paramétrage du document default </h2>
+                        <img src="img/menudefault.PNG">
+                        <ul>
+                          <li><b>Application</b>: Dans cet onglet, on paramètre le style de page et d'autre option rajouter en plus a l'application.
+                            <li><b>Thématique & données </b>: Gestionnaire des couches et paramétrage des couches (filtres...etc).
+                              <li><b>Couche de fond</b>:17 Choix de fonds de couches.
+                                <li><b>Recherche</b>: Système de recherche (base adresse Nationale, Géoportail)
+                                </ul>
+                       <h3>Retrouver plus d'information sur ces deux liens :</h4>
+                       <a href="https://mviewerdoc.readthedocs.io/fr/latest/index.html" target="_blank" i18n="help.modal.doc"><h4>MviewerDoc</h4></a>
+                       <a href="https://jdev.fr/resources_pages/formations/f_mviewer.html" target="_blank" i18n="help.modal.doc"><h4>MviewerJdev</h4></a>
+      </div>
       </div>
   </body>
 </html>
