@@ -5,19 +5,86 @@
     <title></title>
     <link rel="stylesheet" href="css/styleMviewer2.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+    <!--Fichier javascript qui permet qui visionnier les differentes onglet-->
     <script src="js/change.js" type="text/javascript"></script>
-
-
   </head>
   <body>
+    <!--Fonction permet de naviguer sur les onglet (Introduction,Installation,Mise en place,Parametrage)-->
     <span onclick="myFunction()" class="introduction1"><h1>Introduction</h1></span>
     <span onclick="myFunction2()" class="installation1"><h1>Installation</h1></span>
     <span onclick="myFunction3()" class="mep1"><h1>Mise en place</h1></span>
     <span onclick="myFunction4()" class="parametrage1"><h1>Paramétrage</h1></span>
-<div id ="introduction" class="introduction"></span></div>
-<div id ="installation" class="installation"></div>
-<div id ="mep" class="mep"></div>
-<div id ="parametrage" class="parametrage"></div>
+    <!--Page Introduction-->
+<div id ="introduction" class="introduction"><h1>Mviewer</h1>
+<p>Mviewer est une application cartographique initiée et développée par la Région Bretagne, sous le nom de Kartenn (carte en breton).
+  Le code source de cette application est librement réutilisable depuis 2014.
+  De nombreuses collectivités mais également des entreprises, le secteur de la recherche et de l’enseignement utilisent librement cette application et participent à son évolution.</p>
+<img src="img/mviewerintro.png" class="img1">
+</div>
+<!--Page Installation-->
+<div id ="installation" class="installation">
+<p><a href="https://github.com/geobretagne/mviewer" target="_blank">Lien du github de l'application <b>Mviewer</b></a><p>
+  <ul>
+    <li>Appuyer sur le bouton déroulant « <b>Code</b> » (étape 1)</li>
+    <li>Appuyer sur le bouton <b>Download ZIP</b> (étape 2)</li>
+  </ul>
+  <img src="img/dlmviewer.PNG" class="img1">
+</div>
+<!--Page Mise en page-->
+<div id ="mep" class="mep">
+<p>Après avoir télécharger le ZIP de « <b>mviewer-master</b> ».</p>
+<ul>
+  <li>Il faudra le décompresser sur le passer dans le dossier « <b>www</b> » dans le dossier WampServer.(Étape 1)</li>
+</ul>
+<img src="img/doswww.PNG" class="img1">
+</div>
+<!--Page Paramétrage-->
+<div id ="parametrage" class="parametrage">
+  <h1>Paramétrage du couche dans l'application Mviewer</h1>
+  <p>Pour paramétrer  une couche, il faut accéder au dossier <b>apps</b> qui contient un fichier <b> default.xml</b>, c'est dans ce fichier qu'on pourra changer les changées les paramètres des couches.
+      Ensemble des paramètres choisi dois ce trouver dans une balise "<"layer">"
+      3 paramètres sont <b>obligatoires</b> a mettre dans cette balise :</p>
+  <ul>
+    <li><b>name</b>: paramètre de type texte qui précise le nom de la couche.</li>
+      <li><b>url</b>: paramètre de type URL (URL du service web).</li>
+        <li><b>id</b>: paramètre de type texte qui renseigne l’identifiant technique de la couche côté serveur WMS ou WFS.</li>
+      </ul>
+      <h2> Paramètre pour gérer l'affichage de la couche</h2>
+      <ul>
+        <li><b>visible</b>: Booléen stipulant si la couche est visible par défaut.
+          <li><b>opacity</b>: Opacité de la couche (1 par défaut).
+            <li><b>style</b>: Style(s) de la couche. Si plusieurs styles , utiliser la virgule comme séparateur. Si la couche est de type wms, il faut faire référence à un style sld. Si la couche est de type geojson, il faut faire référence à un style définit dans lib/featurestyles.js. Si la couche est de type customlayer, le style n’est pas défini ici.
+              <li><b>sld</b>: Lien vers un SLD stocké sur le web. Dans ce fichier SLD, la balise sld:Name contenue dans sld:NamedLayer doit être égale au nom de la couche sans mention du namespace. Exemple <sld:Name>aeroports</sld:Name>. Si plusieurs styles , utiliser la virgule comme séparateur. S’applique uniquement aux layers WMS. Il faut indiquer l’URL résolvable par le serveur WMS du ou des sld.
+                <li><b>index</b>: Ordre d’affichage de la couche sur la carte et dans la légende au démarrage. Les couches avec ce paramètre seront visibles sous les toplayers. Les couches sans ce paramètre ni toplayer seront affichées dans l’ordre d’écriture dans le XML.
+                </ul>
+                <h2>Paramètre pour gérer le filtre attributaire(liste déroulante) des couches WMS</h2>
+                <ul>
+                  <li><b>attributefilter</b>:  Booléen précisant si on active la sélection attributaire par menu déroulant.
+                    <li><b>attributefield</b>: Nom du champ à utiliser avec le contrôle attributefilter.
+                      <li><b>attributevalues</b>: Valeurs de la sélection attributaire séparées par des virgules.
+                        <li><b>attributelabel</b>:  Texte à afficher pour chaque atttribut de la liste déroulante associée.
+                </ul>
+                <h3> Si vous trouvez que paramétrer des couches dans le fichier XML soit trop compliquez pour vous. Les développeurs ont tout prévu, une application existe pour paramétrer plus facilement l'application. </h3>
+                <a href="https://kartenn.region-bretagne.fr/mviewerstudio/?xml=" target="_blank" i18n="help.modal.doc"><h2 style="text-align: center;">Mviewer Studio</h2></a>
+                  <img src="img/menustudio.PNG" class="img1">
+                  <h4>Image: Menu Mviewer studio</h4>
+                  <img src="img/openxml.PNG" class="img1">
+                  <h4>Image: Charger le document XML default  Mviewer studio</h4>
+                  <p> Dans premier temps, il faut charger le fichier default.xml qui se trouve dans le dossier app de votre dossier Mviewer.</p>
+                  <h2>Paramétrage du document default </h2>
+                  <img src="img/menudefault.PNG" class="img1">
+                  <ul>
+                    <li><b>Application</b>: Dans cet onglet, on paramètre le style de page et d'autre option rajouter en plus a l'application.
+                      <li><b>Thématique & données </b>: Gestionnaire des couches et paramétrage des couches (filtres...etc).
+                        <li><b>Couche de fond</b>:17 Choix de fonds de couches.
+                          <li><b>Recherche</b>: Système de recherche (base adresse Nationale, Géoportail)
+                          </ul>
+                 <h3>Retrouver plus d'information sur ces deux liens :</h4>
+                 <a href="https://mviewerdoc.readthedocs.io/fr/latest/index.html" target="_blank" i18n="help.modal.doc"><h4>MviewerDoc</h4></a>
+                 <a href="https://jdev.fr/resources_pages/formations/f_mviewer.html" target="_blank" i18n="help.modal.doc"><h4>MviewerJdev</h4></a>
+
+
+</div>
 <div class="logo">
   <a href="https://www.parera.fr/" target="_blank">
   <img  src="img/logobanniere.png" alt="Avatar">
